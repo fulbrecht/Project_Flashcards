@@ -19,7 +19,7 @@ function DeckView({update, setUpdate}) {
         }
 
         loadDeck();
-    }, [update])
+    }, [update, params.deckId])
 
     return (
         <>

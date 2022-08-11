@@ -1,5 +1,5 @@
 import React from "react";
-import { deleteDeck ,listDecks} from "../../utils/api";
+import { deleteDeck } from "../../utils/api";
 import {useHistory } from "react-router-dom";
 
 function DeckListCard({deck, setUpdate}){

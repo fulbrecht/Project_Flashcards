@@ -20,7 +20,7 @@ function Study(){
         }
 
         loadDeck();
-    }, [])
+    }, [params.deckId])
 
 
     if(Object.keys(deck).length === 0) {

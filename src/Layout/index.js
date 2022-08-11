@@ -39,19 +39,19 @@ function Layout() {
             <DeckList decks={decks} setDecks={setDecks} setUpdate={setUpdate}/>
           </Route>
           <Route exact path="/decks/new">
-            <CreateDeck />
+            <CreateDeck setUpdate={setUpdate} />
           </Route>
           <Route exact path="/decks/:deckId">
             <DeckView update={update} setUpdate={setUpdate}/>
           </Route>
           <Route exact path="/decks/:deckId/edit">
-            <EditDeck />
+            <EditDeck setUpdate={setUpdate} />
           </Route>
           <Route exact path="/decks/:deckId/cards/new">
             <AddCard />
           </Route>
           <Route exact path="/decks/:deckId/cards/:cardId/edit">
-            <EditCard />
+            <EditCard setUpdate={setUpdate} />
           </Route>
           <Route exact path="/decks/:deckId/study">
             <Study />

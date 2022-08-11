@@ -30,17 +30,15 @@ function AddCard(){
     const handleDone = () => {history.push(`/decks/${deck.id}`)}
 
     useEffect(() => {
-        //setDeck();
 
         async function loadDeck() {
             const response = await readDeck(params.deckId);
             const deckFromAPI = await response;
             setDeck(deckFromAPI);
-            // setCard(deckFromAPI.cards[cardIndex]);
         }
 
         loadDeck();
-    }, [])
+    }, [params.deckId])
 
     return (
         <>

@@ -1,9 +1,9 @@
 import React, {useEffect, useState}from "react";
 import Breadcrumb from "../general/Breadcrumb";
-import {readDeck} from "../../utils/api/index";
+import {readDeck, updateDeck} from "../../utils/api/index";
 import {useParams, useHistory} from "react-router-dom";
 
-function EditDeck(){
+function EditDeck({setUpdate}){
     const history = useHistory();
     const params = useParams();
     const [deck, setDeck] = useState({});
@@ -14,10 +14,15 @@ function EditDeck(){
 
 
     const handleSubmit = (event) => {
+        const updatedDeck = {...deck, name: name, description: description};
+
         event.preventDefault();
         console.log('Name:', name, ' Description:', description)
+        updateDeck(updatedDeck)
         setName("")
         setDescription("")
+        history.push(`/`)
+        setUpdate(true)
     }
 
     const handleCancel = () => {history.push(`/decks/${deck.id}`)}
@@ -33,7 +38,7 @@ function EditDeck(){
         }
 
         loadDeck();
-    }, [])
+    }, [params.deckId])
 
     useEffect(() => {
         if(Object.keys(deck).length) {

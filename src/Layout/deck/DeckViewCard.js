@@ -1,6 +1,6 @@
 import React from "react";
 import {useHistory } from "react-router-dom";
-import { deleteDeck ,listDecks} from "../../utils/api";
+import { deleteDeck } from "../../utils/api";
 
 function DeckViewCard({deck,setUpdate}) {
     const history = useHistory();
@@ -13,7 +13,6 @@ function DeckViewCard({deck,setUpdate}) {
                 .then(() => history.push("/"))
                 .then(() => setUpdate(() => true));
         }
-
     }
 
     return (

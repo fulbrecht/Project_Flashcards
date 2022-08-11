@@ -1,10 +1,10 @@
 import React, {useEffect, useState}from "react";
 import Breadcrumb from "../general/Breadcrumb";
-import {readDeck} from "../../utils/api/index";
+import {readDeck, updateCard} from "../../utils/api/index";
 import {useParams, useHistory} from "react-router-dom";
 import CardForm from "./CardForm";
 
-function EditCard(){
+function EditCard({setUpdate}){
     const history = useHistory();
     const params = useParams();
     const [deck, setDeck] = useState({});
@@ -15,12 +15,16 @@ function EditCard(){
 
 
     const handleSubmit = (event) => {
+        const card = deck.cards.find((card) => card.id === parseInt(params.cardId));
+        const updatedCard = {...card, front: front, back: back}
+
         event.preventDefault();
         console.log('Front:', front, ' Back:', back)
-
-        
+        updateCard(updatedCard);
         setFront("")
         setBack("")
+        setUpdate(true)
+        history.push(`/decks/${deck.id}`)
     }
 
     const handleCancel = () => {history.push(`/decks/${deck.id}`)}
@@ -35,16 +39,16 @@ function EditCard(){
         }
 
         loadDeck();
-    }, [])
+    }, [params.deckId])
 
     useEffect(() => {
         if(Object.keys(deck).length) {
             
-            const card = deck.cards.find((card) => card.id == params.cardId);
+            const card = deck.cards.find((card) => card.id === parseInt(params.cardId));
             setFront(card.front);
             setBack(card.back);
         }
-    }, [deck])
+    }, [deck, params.cardId])
 
     return (
         <>

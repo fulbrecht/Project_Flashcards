@@ -7,7 +7,13 @@ function DeckList({decks, setUpdate}){
     } else {
         return (
             <>
-                {decks.map((deck, index) => <DeckListCard deck={deck} index={index} setUpdate={setUpdate}/>)}
+                {decks.map((deck, index) => {
+                return (
+                    <div key={index}>
+                        <DeckListCard deck={deck} index={index} setUpdate={setUpdate}/>
+                    </div>
+                )
+                })}
             </>
         )
     }

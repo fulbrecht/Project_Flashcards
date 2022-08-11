@@ -1,9 +1,10 @@
 import React, {useState}from "react";
 import Breadcrumb from "../general/Breadcrumb";
 import {useHistory} from "react-router-dom";
+import { createDeck } from "../../utils/api";
 
 
-function CreateDeck(){
+function CreateDeck({setUpdate}){
     const history = useHistory();
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
@@ -11,10 +12,15 @@ function CreateDeck(){
     const handleDescriptionChange = (event) => setDescription(event.target.value);
 
     const handleSubmit = (event) => {
+        const newDeck = {name: name, description: description}
+
         event.preventDefault();
         console.log('Name:', name, ' Description:', description)
+        createDeck(newDeck)
         setName("")
         setDescription("")
+        history.push("/")
+        setUpdate(true)
     }
 
     const handleCancel = () => {history.push("/")}

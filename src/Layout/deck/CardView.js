@@ -1,10 +1,10 @@
-import React, {useEffect, useState} from "react";
-import {useHistory, useParams} from "react-router-dom";
+import React from "react";
+import {useHistory} from "react-router-dom";
 import {deleteCard} from "../../utils/api";
 
 function CardView({card, setUpdate}){
     const history = useHistory();
-    const params = useParams();
+
 
     function deleteHandler(event){
         event.preventDefault();

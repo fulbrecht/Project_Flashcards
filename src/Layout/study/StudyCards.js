@@ -1,4 +1,4 @@
-import { useParams, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import React, {useState, useEffect} from "react";
 
 
@@ -41,7 +41,7 @@ function StudyCards({deck}) {
         setShowNext(false);
     }
 
-    useEffect( () => {setCard(deck.cards[cardIndex])}, []);
+    useEffect( () => {setCard(deck.cards[cardIndex])},[deck.cards, cardIndex]);
 
     return (
         <div className="card" >

@@ -1,5 +1,4 @@
 import React from "react";
-import Breadcrumb from "./Breadcrumb";
 
 function NotFound() {
   return (
