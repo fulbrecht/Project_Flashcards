@@ -4,7 +4,7 @@ import CardForm from "./CardForm";
 import {readDeck, createCard} from "../../utils/api/index";
 import {useParams, useHistory} from "react-router-dom";
 
-function AddCard(){
+function AddCard({setUpdate}){
     const history = useHistory();
     const params = useParams();
     const [deck, setDeck] = useState({});
@@ -16,7 +16,7 @@ function AddCard(){
 
     const handleSave = (event) => {
         event.preventDefault()
-        console.log('Front:', front, ' Back:', back)
+        // console.log('Front:', front, ' Back:', back)
 
         const newCard = {
             front: front,
@@ -25,6 +25,8 @@ function AddCard(){
         createCard(deck.id, newCard )
         setFront("")
         setBack("")
+        handleDone()
+        setUpdate(true)
     }
 
     const handleDone = () => {history.push(`/decks/${deck.id}`)}

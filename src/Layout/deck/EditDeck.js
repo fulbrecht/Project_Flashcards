@@ -17,7 +17,7 @@ function EditDeck({setUpdate}){
         const updatedDeck = {...deck, name: name, description: description};
 
         event.preventDefault();
-        console.log('Name:', name, ' Description:', description)
+        // console.log('Name:', name, ' Description:', description)
         updateDeck(updatedDeck)
         setName("")
         setDescription("")

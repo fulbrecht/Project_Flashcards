@@ -19,7 +19,7 @@ function EditCard({setUpdate}){
         const updatedCard = {...card, front: front, back: back}
 
         event.preventDefault();
-        console.log('Front:', front, ' Back:', back)
+        // console.log('Front:', front, ' Back:', back)
         updateCard(updatedCard);
         setFront("")
         setBack("")

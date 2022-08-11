@@ -48,7 +48,7 @@ function Layout() {
             <EditDeck setUpdate={setUpdate} />
           </Route>
           <Route exact path="/decks/:deckId/cards/new">
-            <AddCard />
+            <AddCard setUpdate={setUpdate}/>
           </Route>
           <Route exact path="/decks/:deckId/cards/:cardId/edit">
             <EditCard setUpdate={setUpdate} />

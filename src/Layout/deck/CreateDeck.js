@@ -15,7 +15,7 @@ function CreateDeck({setUpdate}){
         const newDeck = {name: name, description: description}
 
         event.preventDefault();
-        console.log('Name:', name, ' Description:', description)
+        // console.log('Name:', name, ' Description:', description)
         createDeck(newDeck)
         setName("")
         setDescription("")
